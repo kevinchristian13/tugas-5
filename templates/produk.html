@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Varian Kopi - TokoApp{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 fw-bold text-dark"><i class="fa-solid fa-mug-hot me-2"></i>Menu Varian Kopi</h2>
+<div class="row g-4">
+    {% for id, item in daftar_produk.items() %}
+    <div class="col-md-3">
+        <div class="card h-100 shadow-sm border-0">
+            <!-- Menampilkan Gambar Kopi -->
+            <img src="{{ item.gambar }}" class="card-img-top" alt="{{ item.nama }}" style="height: 180px; object-fit: cover;">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-primary fw-bold">{{ item.nama }}</h5>
+                <p class="card-text text-muted small">{{ item.deskripsi }}</p>
+                <h6 class="fw-bold text-dark mt-auto">Rp {{ "{:,}".format(item.harga) }}</h6>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-3">
+                <a href="{{ url_for('detail_produk', id=id) }}" class="btn btn-outline-primary btn-sm w-100">Detail Kopi (ID: {{ id }})</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

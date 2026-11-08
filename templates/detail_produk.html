@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Detail Kopi - TokoApp{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0">
+            <img src="{{ item.gambar }}" class="card-img-top" alt="{{ item.nama }}" style="height: 280px; object-fit: cover;">
+            <div class="card-header bg-primary text-white fw-bold">
+                Detail Varian Kopi #{{ id }}
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{ item.nama }}</h3>
+                <h4 class="text-success fw-bold my-3">Rp {{ "{:,}".format(item.harga) }}</h4>
+                <p class="card-text text-secondary">{{ item.deskripsi }}</p>
+                <a href="{{ url_for('produk') }}" class="btn btn-secondary mt-3"><i class="fa-solid fa-arrow-left me-1"></i> Kembali ke Menu Kopi</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
